@@ -1,15 +1,14 @@
 package com.domain;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "emp")
-public class Emp {
+@Table(name = "customer")
+public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotNull
@@ -29,12 +28,12 @@ public class Emp {
     private  String password;
 
     @NotNull
-    @Column(name = "nid")
-    private long nid;
-
-    @NotNull
     @Column(name = "address")
     private String address;
+
+    @NotNull
+    @Column(name = "nid")
+    private long nid;
 
     public int getId() {
         return id;
