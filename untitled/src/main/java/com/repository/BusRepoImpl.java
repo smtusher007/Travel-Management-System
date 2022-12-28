@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class BusRepoImpl {
+public class BusRepoImpl implements BusRepository{
     private SessionFactory sessionFactory;
     public BusRepoImpl(SessionFactory sessionFactory)
     {

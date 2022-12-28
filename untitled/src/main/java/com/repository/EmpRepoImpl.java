@@ -49,4 +49,13 @@ public class EmpRepoImpl implements EmpRepository {
             session.delete(emp);
         }
     }
+
+    @Override
+    public Emp getByEmail(String email)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Emp> empQuery = session.createQuery("from Emp", Emp.class);
+        empQuery.setParameter("email",email);
+        return  empQuery.getSingleResult();
+    }
 }

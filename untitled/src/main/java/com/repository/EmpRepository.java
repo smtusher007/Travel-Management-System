@@ -14,4 +14,6 @@ public interface EmpRepository {
     public Emp update(Emp emp );
 
     public void delete(int id);
+
+    public Emp getByEmail(String email);
 }
