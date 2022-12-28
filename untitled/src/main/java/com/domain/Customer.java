@@ -2,6 +2,7 @@ package com.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
 @Table(name = "customer")
@@ -41,6 +42,27 @@ public class Customer {
 
     public void setId(int id) {
         this.id = id;
+    }
+    @OneToMany(mappedBy = "customer")
+    private Set<Hotel_booking> hotels;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Bus_booking> buses;
+
+    public Set<Bus_booking> getBuses() {
+        return buses;
+    }
+
+    public void setBuses(Set<Bus_booking> buses) {
+        this.buses = buses;
+    }
+
+    public Set<Hotel_booking> getHotels() {
+        return hotels;
+    }
+
+    public void setHotels(Set<Hotel_booking> hotels) {
+        this.hotels = hotels;
     }
 
     public String getName() {
