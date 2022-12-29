@@ -4,6 +4,7 @@ package com.service;
 import com.domain.Emp;
 import com.repository.EmpRepository;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,9 +61,13 @@ public class EmpServiceImpl implements EmpService {
     }
 
    @Override
-    public UserDetails loadUserByUsername(String email)
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException
    {
        Emp emp = getByEmail(email);
+       if(emp==null)
+       {
+           throw new UsernameNotFoundException("Email not found");
+       }
        return new org.springframework.security.core.userdetails.User(emp.getEmail(), emp.getPassword(), emp.getAdmins());
    }
 }
