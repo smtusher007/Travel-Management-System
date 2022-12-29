@@ -3,6 +3,7 @@ package com.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "emp")
@@ -35,6 +36,21 @@ public class Emp {
     @NotNull
     @Column(name = "address")
     private String address;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "emp_admin_map",
+            joinColumns = @JoinColumn(name = "empId"),
+            inverseJoinColumns = @JoinColumn(name = "adminId")
+    )
+    private List<Admin> admins;
+
+    public List<Admin> getAdmins() {
+        return admins;
+    }
+
+    public void setAdmins(List<Admin> admins) {
+        this.admins = admins;
+    }
 
     public int getId() {
         return id;

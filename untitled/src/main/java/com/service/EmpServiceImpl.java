@@ -48,15 +48,21 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Transactional
+    public void delete(int id)
+    {
+        empRepository.delete(id);
+    }
+
+    @Transactional
     public Emp getByEmail(String email)
     {
         return empRepository.getByEmail(email);
     }
 
-    @Override
-    public UserDetails loadUserByEmail(String email)
-    {
-        Emp emp = getByEmail(email);
-        return new org.springframework.security.core.userdetails.User(emp.getEmail(),emp.getPassword())
-    }
+   @Override
+    public UserDetails loadUserByUsername(String email)
+   {
+       Emp emp = getByEmail(email);
+       return new org.springframework.security.core.userdetails.User(emp.getEmail(), emp.getPassword(), emp.getAdmins());
+   }
 }
