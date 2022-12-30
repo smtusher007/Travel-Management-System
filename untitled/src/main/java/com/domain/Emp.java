@@ -37,6 +37,30 @@ public class Emp {
     @Column(name = "address")
     private String address;
 
+    @NotNull
+    @Column(name = "is_enabled")
+    private boolean isEnabled;
+
+    @NotNull
+    @Column(name = "username")
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "emp_admin_map",
             joinColumns = @JoinColumn(name = "empId"),

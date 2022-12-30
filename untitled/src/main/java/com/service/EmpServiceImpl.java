@@ -55,19 +55,19 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Transactional
-    public Emp getByEmail(String email)
+    public Emp getByUsername(String username)
     {
-        return empRepository.getByEmail(email);
+        return empRepository.getByUsername(username);
     }
 
    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
    {
-       Emp emp = getByEmail(email);
+       Emp emp = getByUsername(username);
        if(emp==null)
        {
            throw new UsernameNotFoundException("Email not found");
        }
-       return new org.springframework.security.core.userdetails.User(emp.getEmail(), emp.getPassword(), emp.getAdmins());
+       return new org.springframework.security.core.userdetails.User(emp.getUsername(), emp.getPassword(), emp.getAdmins());
    }
 }

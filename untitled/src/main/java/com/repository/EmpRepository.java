@@ -15,5 +15,5 @@ public interface EmpRepository {
 
     public void delete(int id);
 
-    public Emp getByEmail(String email);
+    public Emp getByUsername(String username);
 }
