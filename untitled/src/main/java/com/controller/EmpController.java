@@ -74,7 +74,7 @@ public class EmpController {
         throw new NotFoundAlertException("Record not found for [" + id + "]");
     }
 
-    @DeleteMapping("emps/{id}")
+    @DeleteMapping("/emps/{id}")
     public ResponseEntity<Emp> deleteEmp(@PathVariable int id)
     {
         empService.delete(id);
