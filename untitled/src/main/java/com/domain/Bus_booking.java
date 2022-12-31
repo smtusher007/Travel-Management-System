@@ -16,25 +16,12 @@ public class Bus_booking {
     private String name;
 
     @NotNull
-    @Column(name = "dept_at")
-    private String dept_at;
+    @Column(name = "dept_At")
+    private String dept_At;
 
     @NotNull
-    @Column(name = "dept_from")
-    private String dept_from;
-
-
-    @ManyToOne
-    @JoinColumn(name = "customerId",nullable = false)
-    private Customer customer;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+    @Column(name = "dept_From")
+    private  String dept_From;
 
     public int getId() {
         return Id;
@@ -52,20 +39,19 @@ public class Bus_booking {
         this.name = name;
     }
 
-    public String getDept_at() {
-        return dept_at;
+    public String getDept_At() {
+        return dept_At;
     }
 
-    public void setDept_at(String dept_at) {
-        this.dept_at = dept_at;
+    public void setDept_At(String dept_At) {
+        this.dept_At = dept_At;
     }
 
-    public String getDept_from() {
-        return dept_from;
+    public String getDept_From() {
+        return dept_From;
     }
 
-    public void setDept_from(String dept_from) {
-        this.dept_from = dept_from;
+    public void setDept_From(String dept_From) {
+        this.dept_From = dept_From;
     }
-
 }

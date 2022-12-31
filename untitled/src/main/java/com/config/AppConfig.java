@@ -43,8 +43,8 @@ public class AppConfig implements WebMvcConfigurer {
     public DataSource dataSource()
     {
         MysqlDataSource mysqlDataSource = new MysqlDataSource();
-        mysqlDataSource.setDatabaseName("tm");
-        mysqlDataSource.setURL("jdbc:mysql://localhost:3306/tm");
+        mysqlDataSource.setDatabaseName("travelmanagement");
+        mysqlDataSource.setURL("jdbc:mysql://localhost:3306/travelmanagement");
         mysqlDataSource.setUser("root");
         mysqlDataSource.setPassword("root");
         return mysqlDataSource;

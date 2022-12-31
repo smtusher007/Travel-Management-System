@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-public interface EmpService extends UserDetailsService {
+public interface EmpService{
 
     public Emp insert(Emp emp);
 
@@ -17,6 +17,5 @@ public interface EmpService extends UserDetailsService {
 
     public void delete(int id);
 
-    public Emp getByUsername(String username);
 
 }

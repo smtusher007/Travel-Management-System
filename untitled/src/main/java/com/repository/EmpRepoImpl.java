@@ -49,13 +49,4 @@ public class EmpRepoImpl implements EmpRepository {
             session.delete(emp);
         }
     }
-
-    @Override
-    public Emp getByUsername(String username)
-    {
-        Session session = sessionFactory.getCurrentSession();
-        Query<Emp> empQuery = session.createQuery("from Emp where username = :username", Emp.class);
-        empQuery.setParameter("username",username);
-        return  empQuery.getSingleResult();
-    }
 }

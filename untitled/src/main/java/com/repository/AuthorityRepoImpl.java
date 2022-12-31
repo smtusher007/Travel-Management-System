@@ -1,7 +1,7 @@
 package com.repository;
 
 
-import com.domain.Admin;
+import com.domain.Authority;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,48 +10,48 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class AdminRepoImpl implements  AdminRepository{
+public class AuthorityRepoImpl implements AuthorityRepository {
 
     private SessionFactory sessionFactory;
 
-    public  AdminRepoImpl(SessionFactory sessionFactory)
+    public AuthorityRepoImpl(SessionFactory sessionFactory)
     {
         this.sessionFactory=sessionFactory;
     }
-    public List<Admin> getAll()
+    public List<Authority> getAll()
     {
         Session session = sessionFactory.getCurrentSession();
-        Query<Admin> adminQuery = session.createQuery("from Admin", Admin.class);
+        Query<Authority> adminQuery = session.createQuery("from Admin", Authority.class);
         return adminQuery.getResultList();
     }
 
-    public Admin create(Admin admin)
+    public Authority create(Authority authority)
     {
         Session session = sessionFactory.getCurrentSession();
-        session.save(admin);
-        return admin;
+        session.save(authority);
+        return authority;
     }
 
-    public Admin get(int id)
+    public Authority get(int id)
     {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(Admin.class, id);
+        return session.get(Authority.class, id);
     }
 
-    public Admin update(Admin admin)
+    public Authority update(Authority authority)
     {
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(admin);
-        return admin;
+        session.saveOrUpdate(authority);
+        return authority;
     }
 
     public void delete(int id)
     {
         Session session = sessionFactory.getCurrentSession();
-        Admin admin = get(id);
-        if(admin != null)
+        Authority authority = get(id);
+        if(authority != null)
         {
-            session.delete(admin);
+            session.delete(authority);
         }
     }
 }

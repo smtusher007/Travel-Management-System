@@ -8,29 +8,29 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "admin")
-public class Admin implements GrantedAuthority {
+@Table(name = "authority")
+public class Authority implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @NotNull
     @Column(name = "name")
     private String name;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "emp_admin_map",
-            joinColumns = @JoinColumn(name = "adminId"),
-            inverseJoinColumns = @JoinColumn(name = "empId")
+    @JoinTable(name = "user_authority_map",
+            joinColumns = @JoinColumn(name = "authority_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<Emp> emps;
+    private List<User> users;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -43,8 +43,7 @@ public class Admin implements GrantedAuthority {
     }
 
     @Override
-    public String getAuthority()
-    {
+    public String getAuthority() {
         return name;
     }
 }

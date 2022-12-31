@@ -19,23 +19,6 @@ public class Hotel_booking {
     @Column(name = "location")
     private String location;
 
-    @ManyToOne
-    @JoinColumn(name="userId",nullable = false)
-    private Customer customer;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Hotel_booking()
-    {
-
-    }
-
     public int getId() {
         return id;
     }
