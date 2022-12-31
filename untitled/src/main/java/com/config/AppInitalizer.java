@@ -7,10 +7,11 @@ public class AppInitalizer extends AbstractAnnotationConfigDispatcherServletInit
     {
         return new Class[0];
     }
-    protected  Class<?>[] getServletConfigClasses()
+protected  Class<?>[] getServletConfigClasses()
     {
         return  new Class[] {AppConfig.class, AppSecurityConfig.class};
     }
+
     protected  String[] getServletMappings()
     {
         return  new String[]{"/"};
