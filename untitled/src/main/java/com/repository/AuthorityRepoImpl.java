@@ -21,8 +21,8 @@ public class AuthorityRepoImpl implements AuthorityRepository {
     public List<Authority> getAll()
     {
         Session session = sessionFactory.getCurrentSession();
-        Query<Authority> adminQuery = session.createQuery("from Admin", Authority.class);
-        return adminQuery.getResultList();
+        Query<Authority> authorityQuery = session.createQuery("from Authority", Authority.class);
+        return authorityQuery.getResultList();
     }
 
     public Authority create(Authority authority)
@@ -32,7 +32,7 @@ public class AuthorityRepoImpl implements AuthorityRepository {
         return authority;
     }
 
-    public Authority get(int id)
+    public Authority get(long id)
     {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Authority.class, id);
@@ -45,7 +45,7 @@ public class AuthorityRepoImpl implements AuthorityRepository {
         return authority;
     }
 
-    public void delete(int id)
+    public void delete(long id)
     {
         Session session = sessionFactory.getCurrentSession();
         Authority authority = get(id);

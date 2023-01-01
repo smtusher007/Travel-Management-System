@@ -62,18 +62,18 @@ public class AuthorityController {
         return ResponseEntity.ok().body(authorities);
     }
     @GetMapping("/authorities/{id}")
-    public ResponseEntity <Authority> getAuthorities(@PathVariable int id)
+    public ResponseEntity <Authority> getAuthorities(@PathVariable long id)
     {
-        Optional<Authority> admin = Optional.ofNullable(authorityService.get(id));
-        if(admin.isPresent())
+        Optional<Authority> authority = Optional.ofNullable(authorityService.get(id));
+        if(authority.isPresent())
         {
-            return ResponseEntity.ok().body(admin.get());
+            return ResponseEntity.ok().body(authority.get());
         }
         throw new NotFoundAlertException("Record not found[" +id+ "]");
     }
 
     @DeleteMapping("/authorities/{id}")
-    public  ResponseEntity<Authority> deleteAuthorities(@PathVariable int id)
+    public  ResponseEntity<Authority> deleteAuthorities(@PathVariable long id)
     {
         authorityService.delete(id);
         return ResponseEntity.noContent().build();

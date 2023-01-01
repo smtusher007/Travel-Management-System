@@ -8,11 +8,11 @@ public interface AuthorityService {
 
     public Authority insert(Authority authority);
 
-    public Authority get(int id);
+    public Authority get(long id);
 
     public List<Authority> getAll();
 
     public Authority update(Authority authority);
 
-    public  void delete(int id);
+    public  void delete(long id);
 }

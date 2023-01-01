@@ -26,7 +26,7 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Transactional(readOnly = true)
-    public Authority get(int id)
+    public Authority get(long id)
     {
         return authorityRepository.get(id);
     }
@@ -44,7 +44,7 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Transactional
-    public void delete(int id)
+    public void delete(long id)
     {
         authorityRepository.delete(id);
     }

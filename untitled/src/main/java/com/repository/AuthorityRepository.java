@@ -10,9 +10,9 @@ public interface AuthorityRepository {
 
     public Authority create(Authority authority);
 
-    public Authority get(int id);
+    public Authority get(long id);
 
     public Authority update(Authority authority);
 
-    public void delete(int id);
+    public void delete(long id);
 }
