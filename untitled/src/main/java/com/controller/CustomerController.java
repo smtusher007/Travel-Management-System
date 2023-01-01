@@ -33,6 +33,16 @@ public class CustomerController {
         webDataBinder.registerCustomEditor(String.class,stringTrimmerEditor);
     }
 
+    @PostMapping("/customers")
+    public ResponseEntity<Customer> createCustomer(@Valid @RequestBody Customer customer) throws Exception
+    {
+        if(customer.getId()!=0)
+        {
+            throw new BadRequestAlertException("Customer cannot have a id when creation");
+        }
+        customerService.insert(customer);
+        return ResponseEntity.created(new URI("/customers/")).body(customer);
+    }
     @PutMapping("/customers")
     public ResponseEntity<Customer> updateCustomer(@Valid @RequestBody Customer customer) throws Exception
     {

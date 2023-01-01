@@ -7,10 +7,15 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import java.util.ArrayList;
 
 @Configuration
 @EnableWebSecurity
@@ -18,11 +23,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class AppSecurityConfig {
 
     @Bean
-    public PasswordEncoder encoder()
-    {
-        return  new BCryptPasswordEncoder();
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
     }
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http ) throws Exception
     {
@@ -30,10 +33,16 @@ public class AppSecurityConfig {
                 .csrf().disable()
                 .cors().disable()
                 .authorizeRequests()
-                //.antMatchers("/api/**")
-                //.access("hasRole('ROLE_ADMIN')")
-                //.antMatchers("/emps/**")
-                //.access("hasRole('ROLE_EMP')")
+                /*.antMatchers("/api/**")
+                .access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/emps/**")
+                .access("hasRole('ROLE_EMP')")
+                .antMatchers("/customers/**")
+                .access("hasRole('ROLE_EMP')")
+                .antMatchers("/bus/**")
+                .access("hasRole('ROLE_EMP')")
+                .antMatchers("/hotels/**")
+                .access("hasRole('ROLE_EMP')")*/
                 .and()
                 .rememberMe()
                 .and()

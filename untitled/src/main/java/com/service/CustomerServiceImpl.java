@@ -31,6 +31,8 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.getAll();
     }
     @Transactional
+    public Customer insert(Customer customer){return customerRepository.create(customer);}
+    @Transactional
     public Customer update(Customer customer)
     {
         return customerRepository.update(customer);
