@@ -33,8 +33,8 @@ public class AppSecurityConfig {
                 .csrf().disable()
                 .cors().disable()
                 .authorizeRequests()
-                .antMatchers("/api/**")
-                .access("hasRole('ROLE_ADMIN')")
+                /*.antMatchers("/api/**")
+                .access("hasRole('ROLE_ADMIN')")*/
                 .and()
                 .rememberMe()
                 .and()
