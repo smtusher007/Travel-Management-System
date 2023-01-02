@@ -20,9 +20,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @NotNull
-    @Column(name = "is_enabled")
-    private boolean isEnabled;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_authority_map",
@@ -55,13 +53,7 @@ public class User {
         this.password = password;
     }
 
-    public boolean isEnabled() {
-        return isEnabled;
-    }
 
-    public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
-    }
 
     public List<Authority> getAuthorities() {
         return authorities;
